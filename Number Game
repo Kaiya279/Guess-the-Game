@@ -1,0 +1,94 @@
+#Guess the number
+
+import random
+
+#global
+
+#Append the List when user guess low or high than the number
+Low_guess= []
+High_guess =[]
+
+#Set the range of number for pick
+class set_Range:
+    def __init__(self,beg,end,left_turns):
+        self.beg = beg
+        self.end = end  
+        self.left_turns=left_turns
+
+#set the range for while loop
+class loop_range:
+    def __init__(self,loopBeg,loopEnd):
+        self.loopBeg=loopBeg
+        self.loopEnd=loopEnd
+        
+#Global While loop
+def game(Beg,End):
+    count=0
+    while count in range(Beg,End):
+        num = int(input("Pick a number between {} and {}.".format(r1.beg,r1.end)))
+        
+        if(num < rand_num):
+            print("Low Guess")
+            count+=1
+            r1.left_turns -= 1
+            Low_guess.append(num)
+            
+            print("You have {} turns left".format(r1.left_turns))
+            print("Low Guess List",Low_guess)
+            continue
+            break   
+        elif(num > rand_num):
+            print("High Guess")
+            count+=1
+            r1.left_turns -= 1
+            High_guess.append(num)
+            
+            print("You have {} turns left".format(r1.left_turns))
+            print("High Guess List",High_guess)
+            continue
+            
+            break
+            
+        elif(num == rand_num):
+            print("Correct Guess")
+            
+            break
+        
+    else:
+        print("Oops!! No turns left. My number was {}".format(rand_num))
+         
+
+print("Instruction Enter 'E' for Easy Level,'I' for Intermediate Level and 'H' for Hard level.You have five turns for Easy Level, Seven Turns for Intermediate level and Ten Turns for Hard Level")
+pick_level = input("Pick the level: ")
+
+#Easy Level
+if(pick_level == "E"):
+    r1= set_Range(1,10,5)
+    rand_num = random.randrange(1, 10, 1)
+    l1=loop_range(0,5)
+    Beg = l1.loopBeg
+    End = l1.loopEnd
+    game(Beg,End)
+
+#Intermediate Level
+
+elif(pick_level == "I"):
+    r1= set_Range(10,100,7)
+    rand_num = random.randrange(10, 100, 1)
+    l1=loop_range(0,7)
+    Beg = l1.loopBeg
+    End = l1.loopEnd
+    game(Beg,End)
+
+#High Level      
+elif(pick_level == "H"):
+    r1= set_Range(100,1000,10)
+    rand_num = random.randrange(100, 1000, 1)
+    l1=loop_range(0,10)
+    Beg = l1.loopBeg
+    End = l1.loopEnd
+    game(Beg,End)
+
+else:
+    
+    print("Invalid Input")
